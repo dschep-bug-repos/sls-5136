@@ -45,7 +45,11 @@ provider:
   environment:
     TEST1: ${self:does_not_exist, "This_is_fine"}
     TEST2: ${self:does_not_exist, "this=not_fine"}
-
+    # try some work arounds, neither seems to work
+    TEST3: ${self:does_not_exist, ${self:custom.workaround}}
+    TEST4: ${self:does_not_exist, ${file(workaround.yml):value}}
+custom:
+  workaround: this=fine
 # you can add packaging information here
 #package:
 #  include:
