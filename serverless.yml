@@ -42,8 +42,9 @@ provider:
 #            - "/*"
 
 # you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+  environment:
+    TEST1: ${self:does_not_exist, "This_is_fine"}
+    TEST2: ${self:does_not_exist, "this=not_fine"}
 
 # you can add packaging information here
 #package:
